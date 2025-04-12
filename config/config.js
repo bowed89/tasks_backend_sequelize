@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-module.exports = {
+/* module.exports = {
   development: {
     username: process.env.DB_USERNAME_DEV,
     password: process.env.DB_PASSWORD_DEV,
@@ -21,5 +21,23 @@ module.exports = {
     database: process.env.DB_NAME_PROD,
     host: process.env.DB_HOST_PROD,
     dialect: process.env.DB_DIALECT_PROD,
+  },
+};
+ */
+
+module.exports = {
+  development: {
+    url: process.env.DATABASE_URL,
+    dialect: "postgres",
+  },
+  production: {
+    url: process.env.DATABASE_URL,
+    dialect: "postgres",
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false, // necesario para Render
+      },
+    },
   },
 };
