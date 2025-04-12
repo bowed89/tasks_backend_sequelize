@@ -27,8 +27,8 @@ app.use("/users", usersRouter);
 app.use("/api", usuarioRoutes);
 app.use("/api", tareaRoutes);
 
-//const PORT = process.env.PORT || 4000;
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
+//const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));
 
 module.exports = app;
